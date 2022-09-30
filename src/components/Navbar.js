@@ -26,5 +26,21 @@ export default function Navbar(props) {
       </div>
     </nav>
   )
+  /* Navbar.propTypes is kind a safety check  which will return an error message in the console when a wrong propType is entered for a component, for eg in the given case if I'll enter a number instead of a string in title, then it will show some error.*/
+Navbar.propTypes = {
+  title: PropTypes.string.isRequired,
+  aboutText: PropTypes.string.isRequired
+}
+
+/* Navbar.defaultProps is used to keep a default properties for elements in which their is no property is entered.*/
+Navbar.defaultProps = {
+  title: "Set title here",
+  aboutText: "About Text here"
+}
+
+/* Here "PropTypes.string.isRequired" means that the tittle is mandatory, if title is not there then it might show some sort of error. Note that this will give only error only if their is no default title being set. */
+// Navbar.propTypes = {
+//   title: PropTypes.string.isRequired, 
+//   aboutText: PropTypes.string
 }
 
