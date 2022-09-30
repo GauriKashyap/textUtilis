@@ -1,8 +1,10 @@
 ## textUtilis:
 
-- Hello there, recently i decided to start an open source react project inorder to hunt down some amazing react developers across the globe and hence i decided to create a text editor application by just using REACT. This is would be a highly function text editor, who's aim would be to provide amazing user experience along with features that would make their lives much more easier.
+Hello there, recently i decided to start an open source react project inorder to hunt down some amazing react developers across the globe and hence i decided to create a text editor application by just using REACT. This is would be a highly function text editor, who's aim would be to provide amazing user experience along with features that would make their lives much more easier.
 
 - To promote open source contribution across the globe i would like to make this project as a part of hacktoberfest 2022 inorder to bring help begineers to get started.
+
+The app is up at [textUtilis](https://text-utilis-one.vercel.app/), redirect to see your changes.
 
 Thereby here are some instructions to get started.
 
