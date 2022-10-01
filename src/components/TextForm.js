@@ -26,6 +26,10 @@ export default function TextForm(props) {
         }
     };
 
+    const capitalize = (oriText) => {
+        return oriText.charAt(0).toUpperCase() + oriText.slice(1);
+    }
+
     // This function handleUPClick is responsible to make the text in textArea in UpperCase and hence as any activity is seeing using the button this function is activated and then this function changes the value of state variable to new variable which has the upper case variable being stored inside it using the given function below. To update the state of the text variable we make use of setText(newText), function.
     const handleUPClick = () => {
         console.log("Upper Case was clicked " + text);
@@ -49,6 +53,18 @@ export default function TextForm(props) {
         }
         setText(result);
     }
+    const handleCaClick = () => {
+
+        let result = capitalize(text);
+
+        const { nonSelectedFrontText,  selectedText, nonSelectedBackText} = separateText(text, highlightedText);
+
+        if (isFormatUponHighlighted) {
+            result = nonSelectedFrontText + capitalize(selectedText) + nonSelectedBackText;
+        }
+        setText(result);
+    }
+
     const handleClearClick = () => {
         console.log("Upper Case was clicked " + text);
         setText('');
@@ -78,6 +94,7 @@ export default function TextForm(props) {
                 {/* Here we define onChange in this textArea as our value of the textArea is a state Variable and its state has to be upgraded everytime we make changes in the textBox, the upgadation in textArea value can be done by listening to this event onChange using a function having event and who's setTexT(event.target.value), updates the value of our state variable text which eventually changes the value in textArea of textBox.*/}
                 <button className="btn btn-primary mx-1 mb-1" onClick={handleUPClick} >Convert to Upper Case</button>
                 <button className="btn btn-primary mx-1 mb-1" onClick={handleLoClick} >Convert to Lower Case</button>
+                <button className="btn btn-primary mx-1 mb-1" onClick={handleCaClick} >Capitalize</button>
                 <button className="btn btn-primary mx-1 mb-1" onClick={handleClearClick} >Clear Text</button>
                 <div>
                     <input type="checkbox" onChange={(e) => setIsFormatUponHighlighted(e.target.checked)} checked={isFormatUponHighlighted} />
