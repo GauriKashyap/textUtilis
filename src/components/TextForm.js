@@ -70,7 +70,7 @@ export default function TextForm(props) {
     const syncReplaceObjWT = (event) =>{
         setReplObj({
             withText:event.target.value,
-            replaceText:replObj.withText
+            replaceText:replObj.replaceText
         });
     }
     // Handles click of Replace Button
