@@ -31,7 +31,7 @@ export default function TextForm(props) {
         console.log("Upper Case was clicked " + text);
 
         let result = text.toUpperCase();
-        const { nonSelectedFrontText,  selectedText, nonSelectedBackText} = separateText(text, highlightedText);
+        const { nonSelectedFrontText, selectedText, nonSelectedBackText } = separateText(text, highlightedText);
 
         if (isFormatUponHighlighted) {
             result = nonSelectedFrontText + selectedText.toUpperCase() + nonSelectedBackText;
@@ -42,8 +42,8 @@ export default function TextForm(props) {
         console.log("Upper Case was clicked " + text);
 
         let result = text.toLowerCase();
-        const { nonSelectedFrontText,  selectedText, nonSelectedBackText} = separateText(text, highlightedText);
-        
+        const { nonSelectedFrontText, selectedText, nonSelectedBackText } = separateText(text, highlightedText);
+
         if (isFormatUponHighlighted) {
             result = nonSelectedFrontText + selectedText.toLowerCase() + nonSelectedBackText;
         }
@@ -85,13 +85,15 @@ export default function TextForm(props) {
                 </div>
             </div>
             {/* Number of words and characters feature.*/}
-           
+
             <div className="container my-3">
                 <h4>Your Text Summary:</h4>
-                <p><em>{text.split(" ").length} words and {text.length} characters.</em></p>
-                <p><em>{text.split(" ").length * 0.008} minute read.</em></p>
+                <p><em>{text ? text.match(/[^\s]+/g).length : 0} words and {text.length} characters.</em></p>
+                <p><em>{text ? Math.ceil(text.trim().match(/\w+/g).length * 0.008) : 0} minute read.</em></p>
                 <h5>Preview</h5>
-                <p>{text}</p>
+                <div style={{ "width": "100%", "wordBreak": "break-all", "max-height": "600px", "overflow-y": "scroll", "border": "1px solid gray", "padding": "0.8rem", "borderRadius": "10px" }}>
+                    <p>{text}</p>
+                </div>
             </div>
         </>
     )
