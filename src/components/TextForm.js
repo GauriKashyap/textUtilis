@@ -32,7 +32,7 @@ export default function TextForm(props) {
             <div className='container'>
                 <h4>{props.heading}</h4>
                 <div className="mb-3">
-                    <textarea className="form-control" value={text} onChange={handleOnChange} id="exampleFormControlTextarea1" rows="16"></textarea>
+                    <textarea className="form-control" value={text} onChange={handleOnChange} id="exampleFormControlTextarea1" rows="16" placeholder='Enter your text here...'></textarea>
                 </div>
                 {/* Here we define onChange in this textArea as our value of the textArea is a state Variable and its state has to be upgraded everytime we make changes in the textBox, the upgadation in textArea value can be done by listening to this event onChange using a function having event and who's setTexT(event.target.value), updates the value of our state variable text which eventually changes the value in textArea of textBox.*/}
                 <button className="btn btn-primary mx-1 mb-1" onClick={handleUPClick} >Convert to Upper Case</button>
