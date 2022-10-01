@@ -115,8 +115,8 @@ export default function TextForm(props) {
                 <button className="btn btn-primary mx-1 mb-1" onClick={handleClearClick} >Clear Text</button>
                 <div style={{display:showsRepl}} className="input-group ">
                     <span className="input-group-text">Word & ReplaceWIth</span>
-                    <input type="text" onChange={syncReplaceObjWT} className="form-control" placeholder='word in paragraph'/>
-                    <input type="text" onChange={syncReplaceObjRT} className="form-control" placeholder='replace word with'/>
+                    <input value={replObj.withText} type="text" onChange={syncReplaceObjWT} className="form-control" placeholder='word in paragraph'/>
+                    <input value={replObj.replaceText} type="text" onChange={syncReplaceObjRT} className="form-control" placeholder='replace word with'/>
                 </div>
                 <button className="btn btn-primary mx-1 mb-1 margin-top" onClick={handleReplaceClick}>Replace Instance</button>
                 <div>
