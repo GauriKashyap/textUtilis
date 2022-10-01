@@ -113,12 +113,12 @@ export default function TextForm(props) {
                 <button className="btn btn-primary mx-1 mb-1" onClick={handleUPClick} >Convert to Upper Case</button>
                 <button className="btn btn-primary mx-1 mb-1" onClick={handleLoClick} >Convert to Lower Case</button>
                 <button className="btn btn-primary mx-1 mb-1" onClick={handleClearClick} >Clear Text</button>
-                <div style={{display:showsRepl}} className="input-group ">
+                <button className="btn btn-primary mx-1 mb-1" onClick={handleReplaceClick}>Replace word</button>
+                <div style={{display:showsRepl,marginTop:"7px"}} className="input-group ">
                     <span className="input-group-text">Word & ReplaceWIth</span>
                     <input value={replObj.withText} type="text" onChange={syncReplaceObjWT} className="form-control" placeholder='word in paragraph'/>
                     <input value={replObj.replaceText} type="text" onChange={syncReplaceObjRT} className="form-control" placeholder='replace word with'/>
                 </div>
-                <button className="btn btn-primary mx-1 mb-1 margin-top" onClick={handleReplaceClick}>Replace Instance</button>
                 <div>
                     <input type="checkbox" onChange={(e) => setIsFormatUponHighlighted(e.target.checked)} checked={isFormatUponHighlighted} />
                     <label className="mx-1 mt-2">Format highlighted only</label>
