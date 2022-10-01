@@ -22,7 +22,27 @@ export default function TextForm(props) {
         setText(event.target.value);
         // This is basiclly used to update the value of text area in the textBox as the variable const text is a state and by default the value of this state variable text is default which is "This is a default text", and if we want to enable this value, which is only possible using onChange function in the textbox, so we need to tell react if the user types something in the textArea, which bascially means triggerr ing onChange function in textArea (onChange={handleOnChange}), so by mentioning "setText(event.target.value)", we will tell react to record this event and hence record the changes from the user and hence records the event and change the value of original state variable text using the above setText function.
     }
+    // changes replaceText
+    const syncReplaceObjRT = (event) =>{
+        setReplObj({
+            replaceText:event.target.value,
+            withText:replObj.withText
+        });
+    }
+    // changes WithText
+    const syncReplaceObjWT = (event) =>{
+        setReplObj({
+            withText:event.target.value,
+            replaceText:replObj.withText
+        });
+    }
+    // Handles click of Replace Button
+    const handleReplaceClick = (event) =>{
+        let newText = text.replaceAll(replObj.withText,replObj.replaceText);
+        setText(newText);
+    }
     const [text, setText] = useState('This is a default text.');
+    const [replObj,setReplObj]=useState({replaceText:"",withText:""});
     // useState is a hook in React which is used to initialize a state variable. text is the default value 
     // text = "n"; this would have worked if we would have used "var" or "let" instead of "const"
     //text ="random";  wrong way to update the state of a variable. We need a function like setText() which will be upgrading the value of the variable "text".
@@ -38,6 +58,12 @@ export default function TextForm(props) {
                 <button className="btn btn-primary mx-1 mb-1" onClick={handleUPClick} >Convert to Upper Case</button>
                 <button className="btn btn-primary mx-1 mb-1" onClick={handleLoClick} >Convert to Lower Case</button>
                 <button className="btn btn-primary mx-1 mb-1" onClick={handleClearClick} >Clear Text</button>
+                <div className="input-group">
+                    <span className="input-group-text">Word & ReplaceWIth</span>
+                    <input type="text" onChange={syncReplaceObjWT} className="form-control" placeholder='word in paragraph'/>
+                    <input type="text" onChange={syncReplaceObjRT} className="form-control" placeholder='replace word with'/>
+                </div>
+                <button className="btn btn-primary mx-1 mb-1 margin-top" onClick={handleReplaceClick}>Replace Instance</button>
             </div>
             {/* Number of words and characters feature.*/}
            
