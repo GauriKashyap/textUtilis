@@ -17,12 +17,12 @@ export default function TextForm(props) {
         let newText ='';
         setText(newText);
     }
-    const handleOnChange = (event) => {
-        console.log("Some change has been made in the text box ");
-        setText(event.target.value);
-        // This is basiclly used to update the value of text area in the textBox as the variable const text is a state and by default the value of this state variable text is default which is "This is a default text", and if we want to enable this value, which is only possible using onChange function in the textbox, so we need to tell react if the user types something in the textArea, which bascially means triggerr ing onChange function in textArea (onChange={handleOnChange}), so by mentioning "setText(event.target.value)", we will tell react to record this event and hence record the changes from the user and hence records the event and change the value of original state variable text using the above setText function.
+    const [count, setCount] = React.useState(0);
+    function handleChange(event) {
+        
+        // This function will handle changes in textarea and set word counter accordingly
+        setCount(event.target.value.length ?  event.target.value.trim().replace(/\n/g, " ").split(' ').length : 0);
     }
-    const [text, setText] = useState('This is a default text.');
     // useState is a hook in React which is used to initialize a state variable. text is the default value 
     // text = "n"; this would have worked if we would have used "var" or "let" instead of "const"
     //text ="random";  wrong way to update the state of a variable. We need a function like setText() which will be upgrading the value of the variable "text".
@@ -43,7 +43,7 @@ export default function TextForm(props) {
            
             <div className="container my-3">
                 <h4>Your Text Summary:</h4>
-                <p><em>{text.split(" ").length} words and {text.length} characters.</em></p>
+                <p>Word Counter: {count}</p>
                 <p><em>{text.split(" ").length * 0.008} minute read.</em></p>
                 <h5>Preview</h5>
                 <p>{text}</p>
