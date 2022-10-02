@@ -30,6 +30,10 @@ export default function TextForm(props) {
         return oriText.charAt(0).toUpperCase() + oriText.slice(1);
     }
 
+    const removePunctuation = (oriText) => {
+        return oriText.replace(/[^\w\s]|_/g, "").replace(/\s+/g, " ");
+    }
+
     // This function handleUPClick is responsible to make the text in textArea in UpperCase and hence as any activity is seeing using the button this function is activated and then this function changes the value of state variable to new variable which has the upper case variable being stored inside it using the given function below. To update the state of the text variable we make use of setText(newText), function.
     const handleUPClick = () => {
         console.log("Upper Case was clicked " + text);
@@ -64,6 +68,16 @@ export default function TextForm(props) {
         }
         setText(result);
     }
+    const handleRpClick = () => {
+        let result = removePunctuation(text);
+
+        const { nonSelectedFrontText,  selectedText, nonSelectedBackText} = separateText(text, highlightedText);
+
+        if (isFormatUponHighlighted) {
+            result = nonSelectedFrontText + removePunctuation(selectedText) + nonSelectedBackText;
+        }
+        setText(result);
+    }
 
     const handleClearClick = () => {
         console.log("Upper Case was clicked " + text);
@@ -95,6 +109,7 @@ export default function TextForm(props) {
                 <button className="btn btn-primary mx-1 mb-1" onClick={handleUPClick} >Convert to Upper Case</button>
                 <button className="btn btn-primary mx-1 mb-1" onClick={handleLoClick} >Convert to Lower Case</button>
                 <button className="btn btn-primary mx-1 mb-1" onClick={handleCaClick} >Capitalize</button>
+                <button className="btn btn-primary mx-1 mb-1" onClick={handleRpClick} >Remove Punctuations</button>
                 <button className="btn btn-primary mx-1 mb-1" onClick={handleClearClick} >Clear Text</button>
                 <div>
                     <input type="checkbox" onChange={(e) => setIsFormatUponHighlighted(e.target.checked)} checked={isFormatUponHighlighted} />
