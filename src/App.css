@@ -4,7 +4,6 @@
     column-gap: 1rem;
 }
 
-/* (desktops, 992px and up) */
 @media screen and (min-width: 992px) { 
     .buttons-container {
         width: 40%;

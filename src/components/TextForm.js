@@ -114,8 +114,8 @@ export default function TextForm(props) {
 
                 <div className="buttons-container">
                         <button className="btn btn-primary my-1 shadow " onClick={handleUPClick} >Upper Case Text</button>
-                        <button className="btn btn-info my-1 shadow" onClick={handleLoClick} >Lower Case Text</button>
                         <button className="btn btn-success my-1 shadow" onClick={handleCaClick} >Capitalize</button>
+                        <button className="btn btn-info my-1 shadow" onClick={handleLoClick} >Lower Case Text</button>
                         <button className="btn btn-danger  my-1 shadow" onClick={handleClearClick} >Clear Text</button>
                 </div>
                 <div className="mt-2 mb-4">
