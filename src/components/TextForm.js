@@ -1,8 +1,6 @@
 import React, { useState, useRef } from 'react';
 import useHighlightText from '../hooks/useHighlightText';
 import { useSpeechSynthesis } from 'react-speech-kit';
-import Button from '../Button';
-
 export default function TextForm(props) {
     const [text, setText] = useState('This is a default text.');
     const [isFormatUponHighlighted, setIsFormatUponHighlighted] = useState(false);
@@ -118,7 +116,6 @@ export default function TextForm(props) {
                 <button className="btn btn-primary mx-1 mb-1" onClick={handleRpClick} >Remove Punctuations</button>
                 <button className="btn btn-primary mx-1 mb-1" onClick={handleClearClick} >Clear Text</button>
                 <button className="btn btn-primary mx-1 mb-1" onClick={handleTextToAudio}>Listen Now</button>
-                <Button />
                 <div>
                     <input type="checkbox" onChange={(e) => setIsFormatUponHighlighted(e.target.checked)} checked={isFormatUponHighlighted} />
                     <label className="mx-1 mt-2">Format highlighted only</label>

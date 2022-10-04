@@ -1,6 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-
+import Toggle from '../Toggle';
 export default function Navbar(props) {
   return (
     <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
@@ -18,6 +18,7 @@ export default function Navbar(props) {
               <a className="nav-link" href="/">{props.aboutText}</a>
             </li>
           </ul>
+          <Toggle />
           <form className="d-flex" role="search">
             <input className="form-control me-2" type="search" placeholder="Search" aria-label="Search" />
             <button className="btn btn-primary" type="submit">Search</button>
