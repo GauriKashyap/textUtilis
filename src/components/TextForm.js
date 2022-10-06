@@ -98,39 +98,40 @@ export default function TextForm(props) {
     console.log(isFormatUponHighlighted);
     return (
         <>
-            <div className='container'>
-                <h4>{props.heading}</h4>
+            <div className='container-md mt-5'>
+                <h4 className='mb-3'>{props.heading}</h4>
                 <div className="mb-3">
                     <textarea
-                        className="form-control"
+                        className="form-control shadow-sm"
                         value={text}
                         onChange={handleOnChange}
                         id="exampleFormControlTextarea1"
-                        rows="16"
+                        rows="10"
                         ref={textAreaRef}
                     />
                 </div>
                 {/* Here we define onChange in this textArea as our value of the textArea is a state Variable and its state has to be upgraded everytime we make changes in the textBox, the upgadation in textArea value can be done by listening to this event onChange using a function having event and who's setTexT(event.target.value), updates the value of our state variable text which eventually changes the value in textArea of textBox.*/}
-                <button className="btn btn-primary mx-1 mb-1" onClick={handleUPClick} >Convert to Upper Case</button>
-                <button className="btn btn-primary mx-1 mb-1" onClick={handleLoClick} >Convert to Lower Case</button>
-                <button className="btn btn-primary mx-1 mb-1" onClick={handleCaClick} >Capitalize</button>
-                <button className="btn btn-primary mx-1 mb-1" onClick={handleRpClick} >Remove Punctuations</button>
-                <button className="btn btn-primary mx-1 mb-1" onClick={handleClearClick} >Clear Text</button>
-                <button className="btn btn-primary mx-1 mb-1" onClick={handleTextToAudio}>Listen Now</button>
-                <div>
+
+                <div className="buttons-container">
+                        <button className="btn btn-primary my-1 shadow " onClick={handleUPClick} >Upper Case Text</button>
+                        <button className="btn btn-success my-1 shadow" onClick={handleCaClick} >Capitalize</button>
+                        <button className="btn btn-info my-1 shadow" onClick={handleLoClick} >Lower Case Text</button>
+                        <button className="btn btn-danger  my-1 shadow" onClick={handleClearClick} >Clear Text</button>
+                </div>
+                <div className="mt-2 mb-4">
                     <input type="checkbox" onChange={(e) => setIsFormatUponHighlighted(e.target.checked)} checked={isFormatUponHighlighted} />
                     <label className="mx-1 mt-2">Format highlighted only</label>
                 </div>
-            </div>
-            {/* Number of words and characters feature.*/}
+                <div className="mt-2">
 
-            <div className="container my-3">
                 <h4>Your Text Summary:</h4>
                 <p><em>{text.split(" ").length} words and {text.length} characters.</em></p>
                 <p><em>{text.split(" ").length * 0.008} minute read.</em></p>
                 <h5>Preview</h5>
                 <p>{text}</p>
             </div>
+            </div>
+            {/* Number of words and characters feature.*/}
         </>
     )
 }
