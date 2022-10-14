@@ -35,8 +35,8 @@ Navbar.defaultProps = {
 }
 
 /* Here "PropTypes.string.isRequired" means that the tittle is mandatory, if title is not there then it might show some sort of error. Note that this will give only error only if their is no default title being set. */
-// Navbar.propTypes = {
-//   title: PropTypes.string.isRequired, 
-//   aboutText: PropTypes.string
+ Navbar.propTypes = {
+   title: PropTypes.string.isRequired, 
+   aboutText: PropTypes.string
 }
 
